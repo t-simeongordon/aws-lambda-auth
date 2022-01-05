@@ -26,10 +26,10 @@ exports.handler =  async function(event, context, callback) {
 
         if(token === paramToken.Parameter.Value){
             console.log(`token: allow`);
-            callback(null, generatePolicy('user', 'Allow', event.methodArn));
+            response = generatePolicy('user', 'Allow', event.methodArn);
         }else{
             console.log(`token: deny`);
-            callback(null, generatePolicy('user', 'Deny', event.methodArn));
+            response = generatePolicy('user', 'Deny', event.methodArn);
         }
     }catch(error){
         console.error(`Main function caught error: ${error}`);
